@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Puppy</title>
+    <style>
+        body {
+            background-color: #f5f5dc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+        }
+        .puppy {
+            position: absolute;
+            width: 100px;
+            transition: transform 0.1s linear;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <img id="puppy" class="puppy" src="https://i.imgur.com/uC2cR9Q.png" alt="Puppy">
+
+    <audio id="bark-sound" src="https://www.fesliyanstudios.com/play-mp3/4381"></audio>
+
+    <script>
+        const puppy = document.getElementById("puppy");
+        const barkSound = document.getElementById("bark-sound");
+
+        document.addEventListener("mousemove", (e) => {
+            puppy.style.transform = `translate(${e.clientX - 50}px, ${e.clientY - 50}px)`;
+        });
+
+        puppy.addEventListener("click", () => {
+            barkSound.play();
+        });
+    </script>
+</body>
+</html>
